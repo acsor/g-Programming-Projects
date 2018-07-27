@@ -17,7 +17,7 @@ class ProblemReader:
 
     def __init__(self, filename):
         if not access(filename, R_OK):
-            raise ValueError("File \"%s\" is not readable" % filename)
+            raise ValueError("File \"%s\" does not exist or is not readable" % filename)
 
         self.filename = filename
         
