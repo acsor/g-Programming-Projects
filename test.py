@@ -84,6 +84,20 @@ class ProblemReaderTest(TestCase):
 
         with self.assertRaises(ValueError):
             ProblemReader(filename)
+    
+    def test_raises_stop_iteration(self):
+        """
+        Tests that the iterator from ProblemReader.__iter__() raises a
+        StopIteration, as instructed from the iterator protocol, after the last
+        element.
+        """
+        filename = self.TEST_DIR + "/README.md"
+        p = ProblemReader(filename)
+        i = iter(p)
+
+        with self.assertRaises(StopIteration):
+            tuple(i)
+            next(i)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+import argparse
 import re
+import sys
 
 from os import access, R_OK
 from random import randrange
@@ -17,7 +19,9 @@ class ProblemReader:
 
     def __init__(self, filename):
         if not access(filename, R_OK):
-            raise ValueError("File \"%s\" does not exist or is not readable" % filename)
+            raise ValueError(
+                "File \"%s\" does not exist or is not readable" % filename
+            )
 
         self.filename = filename
         
@@ -37,8 +41,8 @@ class ProblemReader:
             for l in inputfile:
                 if not inside and self.END.match(l):
                     raise ValueError(
-                            "</ol> tag comes before <ol> tag in %s or <ol> is missing" %
-                            self.filename
+                        "</ol> tag comes before <ol> tag in %s or <ol> is missing" %
+                        self.filename
                     )
                 if self.START.match(l):
                     inside = True
@@ -61,17 +65,25 @@ class ProblemReader:
 
 
 def main():
-    default_filename = "README.md"
-    choice = None
-    filename = input("Enter source filename [defaults to %s]: " % default_filename)
+    parser = argparse.ArgumentParser(description="Choose a suggested problem")
+    parser.add_argument("--src", action="store", type=str,
+        dest="source_filename", metavar="<filename>", default="README.md",
+        help="Source file name where to extract problem tracks from (Markdown format)."
+    )
+    args = parser.parse_args()
 
-    if not filename:
-        filename = default_filename
+    try:
+        p = ProblemReader(args.source_filename)
+    except ValueError:
+        print("No file named %s exists or is readable" %
+                args.source_filename, file=sys.stderr)
+        exit(1)
+    problems = tuple(p)
+    # randrange() does not include the endpoint
+    choice = randrange(0, len(problems))
 
-    problems = list(ProblemReader(filename))
-    choice = randrange(0, len(problems)) # randrange() does not include the endpoint
-
-    print("And your assigned choice is...\n\t\t\t*** %s ***" % problems[choice])
+    print("And your assigned choice is...\n\t\t\t*** %s ***"
+            % problems[choice])
 
 
 if __name__ == "__main__":
