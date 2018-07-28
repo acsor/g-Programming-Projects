@@ -54,13 +54,14 @@ class ProblemReader:
                 if inside:
                     match = self.LINE.match(l)
                     
-                    yield match.group(1)
+                    if match:
+                        yield match.group(1)
 
             # We left the loop never meeting the </ol> tag
             if inside:
                 print(
                     "[%s] WARNING: Ending tag </ol> never met in %s" %
-                    (argv[0], self.filename)
+                    (argv[0], self.filename), file=sys.stderr
                 )
 
 
