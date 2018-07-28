@@ -7,7 +7,7 @@ These are in random difficulty order.
 
 How to Play
 -----------------------------
-Last three digits of your post decide.
+Last three digits of your post decide. If none, run `./problem_picker.py`.
 
 Happy Rolling!
 
