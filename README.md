@@ -1,11 +1,12 @@
 # /g/'s Programming Projects v4.0
 
-/g/'s Programming Projects for beginner to advanced developers, featuring
-version 4.0 of the manifesto. This a fork from
+[/g/](http://boards.4chan.org/g/)'s Programming Projects for beginner to
+advanced developers, featuring version 4.0 of the manifesto. This a fork from
 [keplr/programming-projects-for-n00bz](https://github.com/keplr/programming-projects-for-n00bz).
 
 The problems are in random difficulty order. For more information (difficulty
-level, tips etc.) refer to the [manifesto](ProgrammingChallengesv4.0.png).
+level, tips etc.) refer to
+[Pro/g/ramming Challenges v4.0](ProgrammingChallengesv4.0.png).
 
 Lastly, the Programming Challenges v4.0 image file was translated into text by
 means of an OCR software, and reformatted into this `README.md` file through
