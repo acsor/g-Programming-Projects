@@ -167,9 +167,22 @@ Happy Rolling!
 
 ## Challenge Tier
 * Conways Game of Life with an Improvement Algorithm.
-It should be given a starting pattern, and after the starting pattern when a generation dies or stops significant movement (repeats itself indefinately).
-* Scan the entire IPv4 range, from 0.0.0.0 to 255.255.255.255 and log IP's that host webservers in a database.
+It should be given a starting pattern, and after the starting pattern when a
+generation dies or stops significant movement (repeats itself indefinately).
+* Scan the entire IPv4 range, from 0.0.0.0 to 255.255.255.255 and log IP's
+that host webservers in a database.
 I take no responsibility if anybody comes knocking on your door.
+
+## Bringing forth this repository
+If any future contributor decides to upgrade this repository throughout time,
+they should:
+* Not break the formatting of the problems list (a `<ol></ol>` paragraph
+  containing a sequence of `<li>` items, line by line) in `README.md`, for the
+  sake of `problem_picker.py`.
+* In case `problem_picker.py` is improved upon or modified in any way, run it
+  against the test battery at `test.py`: `python3 ./test.py` will suffice.
+* As a good development practice, add any other test cases in the test battery
+  at `test.py`.
 
 ### For more ideas, you can also check out:
 * https://projecteuler.net/
